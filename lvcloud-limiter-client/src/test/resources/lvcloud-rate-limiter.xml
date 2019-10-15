@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<methods>
+    <method>
+        <name>interface/method</name>
+        <type>2</type>
+        <permits>5</permits>
+        <timeunit>SECONDS</timeunit>
+    </method>
+    <method>
+        <name>interface/method</name>
+        <type>2</type>
+        <permits>5</permits>
+        <timeunit>MINUTES</timeunit>
+    </method>
+    <method>
+        <name>interface/method</name>
+        <type>1</type>
+        <permits>5</permits>
+    </method>
+</methods>
