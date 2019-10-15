@@ -9,6 +9,7 @@
      
    ### 组件引用说明：
    1、引入pom
+   
    	<dependency>
    		  <groupId>com.lv.cloud</groupId>
    		  <artifactId>lvcloud-limiter-client</artifactId>
@@ -19,7 +20,8 @@
    	  
    3、还需引入lvcloud-rate-limiter.xml到项目classes中
      1) 此文件是限流接口配置文件，配置如下：
-   	<?xml version="1.0" encoding="UTF-8"?>
+   
+    <?xml version="1.0" encoding="UTF-8"?>
    	<methods>
    	    <method>
    	    	<name>interface/method</name>
