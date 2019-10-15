@@ -2,6 +2,7 @@
 !lvcloud-limiter-core
 !lvcloud-limiter-client
 !lvcloud-limiter-server
+!lvcloud-limiter-test
 
 !.gitignore
 !README.md
