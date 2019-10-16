@@ -22,7 +22,7 @@ public class LvcloudTest {
     @Test
     public void test(){
         for(int i = 0;i<10;i++) {
-            System.out.println("###test:" + testService.test());
+            System.out.println("###test:" + testService.test("111"));
         }
     }
 }

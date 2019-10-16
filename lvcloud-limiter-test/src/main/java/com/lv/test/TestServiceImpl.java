@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 public class TestServiceImpl implements ITestService {
 
     @Override
-    public String test() {
-        return "test";
+    public String test(String id) {
+        return "test:" + id;
     }
 }

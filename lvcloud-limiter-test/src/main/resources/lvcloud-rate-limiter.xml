@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <methods>
     <method>
-        <name>interface/method</name>
+        <name>com.lv.test.ITestService/test</name>
         <type>2</type>
         <permits>5</permits>
         <timeunit>SECONDS</timeunit>
     </method>
-    <method>
+   <!-- <method>
         <name>interface/method</name>
         <type>2</type>
         <permits>5</permits>
@@ -16,5 +16,5 @@
         <name>interface/method</name>
         <type>1</type>
         <permits>5</permits>
-    </method>
+    </method>-->
 </methods>

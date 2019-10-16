@@ -1,1 +1,1 @@
-rateLimiterFilter=com.lv.cloud.ratelimiter.filter.RateLimiterFilter
+rateLimiterFilter=com.lv.cloud.ratelimiter.client.filter.RateLimiterFilter

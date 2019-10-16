@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <methods>
+    <!-- 分布式限流-->
     <method>
-        <name>com.lv.test.ITestService/test</name>
-        <type>1</type>
+        <name>interface/method</name>
+        <type>2</type>
         <permits>5</permits>
         <timeunit>SECONDS</timeunit>
     </method>
-   <!-- <method>
+    <method>
         <name>interface/method</name>
         <type>2</type>
         <permits>5</permits>
         <timeunit>MINUTES</timeunit>
     </method>
+    <!-- 本地限流-->
     <method>
         <name>interface/method</name>
         <type>1</type>
         <permits>5</permits>
-    </method>-->
+    </method>
 </methods>

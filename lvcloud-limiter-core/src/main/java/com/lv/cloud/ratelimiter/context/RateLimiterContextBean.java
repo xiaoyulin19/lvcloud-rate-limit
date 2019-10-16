@@ -3,11 +3,13 @@ package com.lv.cloud.ratelimiter.context;
 
 import com.lv.cloud.ratelimiter.model.RateLimiterFactory;
 import com.lv.cloud.ratelimiter.utils.XmlParseUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * 初始化需要限流方法，及相应限流策略进应用上下文
@@ -22,11 +24,19 @@ public class RateLimiterContextBean implements InitializingBean {
 	 * 需要限流的方法集合
 	 */
 	private final static String RATE_LIMITER_FILE_NAME = "lvcloud-rate-limiter.xml";
+
+	public static int MODE = 0;
+
+	public RateLimiterContextBean(){}
+
+	public RateLimiterContextBean(int mode){
+		RateLimiterContextBean.MODE = mode;
+	}
 	
 	public void resetRateLimiterContext(){
 		try {
 			RateLimiterMethods rateLimiterMethods = XmlParseUtils.parse(RATE_LIMITER_FILE_NAME, RateLimiterMethods.class);
-			
+
 			RateLimiterFactory.clearData();
 			
 			if(rateLimiterMethods != null && rateLimiterMethods.getRateLimiterMethodList() != null 
@@ -34,12 +44,12 @@ public class RateLimiterContextBean implements InitializingBean {
 				List<RateLimiterMethod> methodList = rateLimiterMethods.getRateLimiterMethodList();
 				for(RateLimiterMethod method : methodList){
 					if(RATE_LIMITER_TYPE.distributed_rate_limiter.getTypeCode() == method.getType()){
-//						String timeUnit = method.getTimeunit();
-//						if(StringUtils.isBlank(timeUnit)){
-//							RateLimiterFactory.addDistributedRateLimiter(method.getName(), method.getPermits(), null, method.getDistributorChannel());
-//						}else if(TimeUnit.SECONDS.name().equals(timeUnit) || TimeUnit.MINUTES.name().equals(timeUnit)){
-//							RateLimiterFactory.addDistributedRateLimiter(method.getName(), method.getPermits(), method.getTimeunit(), method.getDistributorChannel());
-//						}
+						String timeUnit = method.getTimeunit();
+						if(StringUtils.isBlank(timeUnit)){
+							RateLimiterFactory.addDistributedRateLimiter(method.getName(), method.getPermits(), null, method.getDistributorChannel());
+						}else if(TimeUnit.SECONDS.name().equals(timeUnit) || TimeUnit.MINUTES.name().equals(timeUnit)){
+							RateLimiterFactory.addDistributedRateLimiter(method.getName(), method.getPermits(), method.getTimeunit(), method.getDistributorChannel());
+						}
 					}else if(RATE_LIMITER_TYPE.rate_limiter.getTypeCode() == method.getType()){
 						RateLimiterFactory.addRatelimiter(method.getName(), method.getPermits(), method.getDistributorChannel());
 					}
