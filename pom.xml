@@ -22,7 +22,7 @@
 	<modules>
 		<module>./lvcloud-limiter-core</module>
 		<module>./lvcloud-limiter-client</module>
-		<!--<module>./lvcloud-limiter-server</module>-->
+		<module>./lvcloud-limiter-server</module>
 	</modules>
 
 	<build>
